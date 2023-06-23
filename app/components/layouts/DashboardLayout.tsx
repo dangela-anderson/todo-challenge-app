@@ -23,7 +23,7 @@ export default function Dashboard({ children }: DashboardProps) {
                                         alt="ToDaily Logo"
                                     />
                                 </Link>
-                                <h1 className="ml-2 text-2xl text-slate-400 font-semibold">ToDaily</h1>
+                                <h1 className="ml-2 text-2xl text-blue-600 font-semibold">ToDaily</h1>
                             </div>
                             
                         </div>

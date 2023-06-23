@@ -24,8 +24,8 @@ export default function EditTodoModal({ todo, open, setOpen }: EditTodoModalProp
             <>
                 <input type="hidden" name="to-edit" value={todo.id}/>
 
-                <FormTextInput label="Title" type="text" name="title" defaultValue={todo.title} placeholder="Organize and Clean Kitchen Pantry." required={true}/>
-                <FormTextArea label="Description" name="description" defaultValue={todo.description} placeholder="Take a quick inventory and jot down what you need to restock." required={true}/>
+                <FormTextInput label="Title" type="text" name="title" defaultValue={todo.title} placeholder="Organize and Clean Kitchen Pantry."/>
+                <FormTextArea label="Description" name="description" defaultValue={todo.description} placeholder="Take a quick inventory and jot down what you need to restock."/>
                 <div className="grid gap-y-2">
                     <dt className="text-sm font-medium leading-6 text-gray-900">Complete</dt>
                     <dd>

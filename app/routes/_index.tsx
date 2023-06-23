@@ -47,15 +47,18 @@ export const action: ActionFunction = async ({ request }) => {
 
   switch (action) {
     case "create":  {
-      const title = String(form.get("title"))
-      const description = String(form.get("description"))
+      const title = form.get("title")
+      const description = form.get("description")
       
-      return await prisma.todo.create({
-        data: {
-          title: title, 
-          description: description,
-        }
-      })
+      if (title && description) {
+        return await prisma.todo.create({
+          data: {
+            title: title as string, 
+            description: description as string ,
+          }
+        })
+      }
+      return null
     }
     case "delete": {
       const todoId = Number(form.get("to-delete"))
@@ -75,21 +78,24 @@ export const action: ActionFunction = async ({ request }) => {
     }
 
     case "edit": {
-      const title = String(form.get("title"))
-      const description = String(form.get("description"))
-      const isComplete = String(form.get("is-complete"))
-      const todoId = Number(form.get("to-edit"))
+      const title = form.get("title")
+      const description = form.get("description")
+      const isComplete = form.get("is-complete")
+      const todoId = form.get("to-edit")
 
-      return await prisma.todo.update({
-        where: {
-          id: todoId
-        },
-        data: {
-          title: title,
-          description: description,
-          isComplete: isComplete === "on" ? true : false
-        }
-      })
+      if (title && description && isComplete && todoId) {
+        return await prisma.todo.update({
+          where: {
+            id: Number(todoId)
+          },
+          data: {
+            title: title as string,
+            description: description as string ,
+            isComplete: (isComplete as string) === "on" ? true : false
+          }
+        })
+      }
+      return null
     }
 
     default: {

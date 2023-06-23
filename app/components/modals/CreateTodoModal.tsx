@@ -19,8 +19,8 @@ export default function CreateTodoModal({ open, setOpen }: CreateTodoModalProps)
             open={open} setOpen={setOpen}
         >
             <>
-                <FormTextInput label="Title" type="text" name="title" defaultValue={undefined} placeholder="Organize and Clean Kitchen Pantry." required={true}/>
-                <FormTextArea label="Description" name="description" defaultValue={undefined} placeholder="Take a quick inventory and jot down what you need to restock." required={true}/>
+                <FormTextInput label="Title" type="text" name="title" defaultValue={undefined} placeholder="Organize and Clean Kitchen Pantry."/>
+                <FormTextArea label="Description" name="description" defaultValue={undefined} placeholder="Take a quick inventory and jot down what you need to restock."/>
             </>
         </ModalLayout>
     )

@@ -3,10 +3,9 @@ interface FormTextAreaProps {
     name: string 
     defaultValue?: string
     placeholder?: string 
-    required: boolean
 }
 
-export default function FormTextArea({label, name, defaultValue, placeholder, required}: FormTextAreaProps) {
+export default function FormTextArea({label, name, defaultValue, placeholder}: FormTextAreaProps) {
     return (
         <div className="grid grid-row-2 gap-y-2">
             <label className="block text-sm font-medium leading-6 text-gray-900" htmlFor={name}>
@@ -19,7 +18,6 @@ export default function FormTextArea({label, name, defaultValue, placeholder, re
                     id={name} 
                     name={name} 
                     defaultValue={defaultValue}
-                    required={required} 
                     placeholder={placeholder}
                 />
             </div>

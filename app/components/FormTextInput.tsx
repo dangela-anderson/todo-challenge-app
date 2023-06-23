@@ -4,10 +4,9 @@ interface FormTextInputProps {
     name: string 
     defaultValue: string | undefined
     placeholder: string | undefined
-    required: boolean
 }
 
-export default function FormTextInput({label, type, name, defaultValue, placeholder, required}: FormTextInputProps) {
+export default function FormTextInput({label, type, name, defaultValue, placeholder}: FormTextInputProps) {
     return (
         <div className="grid grid-row-2 gap-y-2">
             <label className="block text-sm font-medium leading-6 text-gray-900" htmlFor={name}>
@@ -19,9 +18,7 @@ export default function FormTextInput({label, type, name, defaultValue, placehol
                     id={name} 
                     type={type} 
                     name={name} 
-                    defaultValue={defaultValue}
-                    required={required} 
-                    maxLength={32}
+                    defaultValue={defaultValue} 
                     placeholder={placeholder}
                 />
             </div>

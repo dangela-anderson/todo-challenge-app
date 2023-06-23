@@ -80,10 +80,10 @@ export const action: ActionFunction = async ({ request }) => {
     case "edit": {
       const title = form.get("title")
       const description = form.get("description")
-      const isComplete = form.get("is-complete")
+      const isComplete = String(form.get("is-complete"))
       const todoId = form.get("to-edit")
 
-      if (title && description && isComplete && todoId) {
+      if (title && description && todoId) {
         return await prisma.todo.update({
           where: {
             id: Number(todoId)
@@ -91,7 +91,7 @@ export const action: ActionFunction = async ({ request }) => {
           data: {
             title: title as string,
             description: description as string ,
-            isComplete: (isComplete as string) === "on" ? true : false
+            isComplete: isComplete === "on" ? true : false
           }
         })
       }

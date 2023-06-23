@@ -75,7 +75,7 @@ export const action: ActionFunction = async ({ request }) => {
           isComplete: true
         }
       })
-    }
+    } 
 
     case "edit": {
       const title = form.get("title")

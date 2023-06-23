@@ -63,6 +63,10 @@ export const action: ActionFunction = async ({ request }) => {
     }
 
     case "delete-all": {
+      return await prisma.todo.deleteMany()
+    }
+
+    case "delete-all-completed": {
       return await prisma.todo.deleteMany({
         where: {
           isComplete: true
@@ -143,7 +147,7 @@ export default function Index() {
             </div>
             <p className="w-full text-sm text-slate-800 font-light">{ `( ${activeTodosCount} ) Active`}</p>
           </div>
-          <SearchBar/>
+          <SearchBar hasFilter={search !== null ? true : false}/>
           
         </div>
         <div>
